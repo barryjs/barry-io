@@ -19,7 +19,7 @@ exports.listen = function (server, opts) {
       if (0 == req.url.indexOf(url)) {
         var path = parse(req.url).pathname.split('/').slice(-1);
         send(req, path)
-          .root(__dirname + '/client')
+          .root(__dirname + '/node_modules/barry/build/js')
           .index(false)
           .pipe(res);
       } else {

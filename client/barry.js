@@ -1,1 +1,0 @@
-../node_modules/barry/build/js/barry.js
