@@ -1,6 +1,6 @@
 {
   "name": "barry-io",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Socket.IO transport plugin for Barry.JS running under Node.js",
   "main": "index.js",
   "scripts": {
