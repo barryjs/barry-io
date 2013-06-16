@@ -1,6 +1,7 @@
 var barry = require('barry');
 var send = require('send');
 var parse = require('url').parse;
+var path = require('path');
 
 exports.listen = function (server, opts) {
   opts = opts || {};
@@ -17,9 +18,9 @@ exports.listen = function (server, opts) {
     server.removeAllListeners('request');
     server.on('request', function(req, res) {
       if (0 == req.url.indexOf(url)) {
-        var path = parse(req.url).pathname.split('/').slice(-1);
-        send(req, path)
-          .root(__dirname + '/node_modules/barry/build/js')
+        var filename = parse(req.url).pathname.split('/').slice(-1);
+        send(req, filename)
+          .root(path.resolve(barry.dirname, 'build/js'))
           .index(false)
           .pipe(res);
       } else {
